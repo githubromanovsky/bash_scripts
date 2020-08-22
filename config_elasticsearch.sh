@@ -13,6 +13,7 @@ MEM=$(free | awk 'NR==2{print $2}')
 let "MEM/=1000000"
 echo "Всего $MEM Gb памяти"
 let "MEM/=2"
+#MEM=$(free | awk 'NR==2{print $2}');let "MEM/=1000000*2"
 
 #Записываем значение RAM в jvm.options по дефолту 2g
 sed -i 's/-Xms2g/-Xms'$MEM'g/' jvm.options
